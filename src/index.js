@@ -12,6 +12,7 @@ app.use(express.json())
 app.use('/api/talleres', tallerRouter)
 app.use('/api/auth', authRouter)
 
+//todo: REVISAR EL PROBLEMA DE CORS
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

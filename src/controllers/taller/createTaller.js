@@ -4,6 +4,7 @@ const Taller = require('../../models/Taller')
 async function createTaller(req, res) {
   const payload = req.body
 
+  //todo: REVISAR ESTE PROBLEMA DE VALIDACION
 /*   try {
     await tallerCreationSchema.validateAsync(payload)
   } catch (err) {
