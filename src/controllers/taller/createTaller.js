@@ -1,15 +1,15 @@
 const Taller = require('../../models/Taller')
-const { tallerCreationSchema } = require('../../validators/tallerSchema')
+//const { tallerCreationSchema } = require('../../validators/tallerSchema')
 
 async function createTaller(req, res) {
   const payload = req.body
 
-  try {
+/*   try {
     await tallerCreationSchema.validateAsync(payload)
   } catch (err) {
     res.status(400).send(err.message)
     return
-  } 
+  }  */
 
   try {
     const taller = await Taller.create({ ...payload})

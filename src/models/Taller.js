@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+/* const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
   id: 'string',
@@ -14,7 +14,41 @@ const schema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Taller', schema);
+module.exports = mongoose.model('Taller', schema); */
+
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const tallerSchema = new Schema({
+  type: {
+    type: String,
+    required: true,
+    enum: ['Feature']
+  },
+  geometry: {
+    type: {
+      type: String,
+      required: true,
+      enum: ['Point']
+    },
+    coordinates: {
+      type: [Number],
+      required: true
+    }
+  },
+  properties: {
+    name: {
+      type: String,
+      required: true
+    }
+  }
+});
+
+const Taller = mongoose.model('Taller', tallerSchema);
+
+module.exports = Taller;
+
 
 /*
 {

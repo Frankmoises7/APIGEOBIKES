@@ -1,4 +1,4 @@
-const Joi = require('joi')
+/* const Joi = require('joi')
 
 const tallerCreationSchema = Joi.object().keys({
   name: Joi.string().required(),
@@ -11,4 +11,19 @@ const tallerCreationSchema = Joi.object().keys({
 
 module.exports = {
   tallerCreationSchema
-}
+} */
+
+const Joi = require('joi');
+
+const tallerCreationSchema = Joi.object({
+  type: Joi.string().required(),
+  geometry: Joi.object({
+    type: Joi.string().required(),
+    coordinates: Joi.array().items(Joi.number()).required()
+  }),
+  properties: Joi.object({
+    name: Joi.string().required()
+  })
+});
+
+module.exports = tallerCreationSchema;
