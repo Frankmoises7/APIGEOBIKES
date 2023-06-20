@@ -4,9 +4,10 @@ const schema = new mongoose.Schema({
   id: 'string',
   name: 'string',
   email: 'string',
-  longitude: 'number',
-  latitude: 'number',
-
+  coords: [{
+    longitude: 'number',
+    latitude: 'number'
+  }],
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
