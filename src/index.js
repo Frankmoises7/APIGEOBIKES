@@ -12,6 +12,14 @@ app.use(express.json())
 app.use('/api/talleres', tallerRouter)
 app.use('/api/auth', authRouter)
 
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     console.log('Connected to MongoDB')
