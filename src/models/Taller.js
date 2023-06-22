@@ -71,9 +71,6 @@ const tallerSchema = new Schema({
   email: {
     type: String,
     required: true
-  },
-  tags: {
-    ele: String,
   }
 });
 
