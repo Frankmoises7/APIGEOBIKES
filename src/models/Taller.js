@@ -1,4 +1,4 @@
-
+/* 
 
 const mongoose = require('mongoose');
 
@@ -41,6 +41,45 @@ const tallerSchema = new Schema({
   }
 });
 
+
+const Taller = mongoose.model('Taller', tallerSchema);
+
+module.exports = Taller; */
+
+
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const tallerSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  lat: {
+    type: Number,
+    required: true
+  },
+  lon: {
+    type: Number,
+    required: true
+  },
+  direction: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  tags: {
+    ele: String,
+  }
+});
+
 const Taller = mongoose.model('Taller', tallerSchema);
 
 module.exports = Taller;
+
+
+
