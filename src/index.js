@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const tokenValidation = require('./middlewares/tokenValidation')
 const { tallerRouter, authRouter } = require('./routes')
 
@@ -12,14 +13,8 @@ app.use(express.json())
 app.use('/api/talleres', tallerRouter)
 app.use('/api/auth', authRouter)
 
-//todo: REVISAR EL PROBLEMA DE CORS
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+// Configuración de CORS
+app.use(cors())
 
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
@@ -28,4 +23,3 @@ mongoose.connect(process.env.MONGO_URL)
       console.log(`Example app listening on port ${PORT}`)
     })
   })
-
